@@ -20,7 +20,7 @@ export class About extends React.Component {
         >
           Link here{' '}
         </a>
-        <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+        <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
       </div>
     );
   }
