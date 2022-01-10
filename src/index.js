@@ -4,10 +4,13 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 import { App } from './App';
 import { About } from './About.js';
-import { Banner } from './Banner.js';
+import { Header } from './Header.js';
+import { Footer } from './Footer.js';
 import { Contact } from './Contact.js';
 import { Checkout } from './Checkout.js';
 import { Unknown } from './Unknown.js';
+
+const categories = ['Home', 'About', 'Contact', 'View Cart'];
 
 //Import items list
 import * as data from './data.json';
@@ -46,7 +49,7 @@ class Index extends React.Component {
     return (
       <Router>
         {/* <h1>{JSON.stringify(this.state.cart)}</h1> */}
-        <Banner type="banner" />
+        <Header categories={categories} />
         <Routes>
           <Route
             exact
@@ -69,7 +72,9 @@ class Index extends React.Component {
           />
           <Route path="*" element={<Unknown />} />
         </Routes>
-        <Banner type="footer">{["More Information",(new Date).getFullYear()]}</Banner>
+        <Footer type="footer" categories={categories}>
+          {['More Information', new Date().getFullYear()]}
+        </Footer>
       </Router>
     );
   }

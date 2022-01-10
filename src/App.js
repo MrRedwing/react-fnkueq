@@ -2,6 +2,7 @@ import React from 'react';
 
 import { Card } from './Card.js';
 import { ChangePage } from './ChangePage.js';
+
 import './style.css';
 
 const itemsPerPage = 8;
@@ -36,14 +37,14 @@ export class App extends React.Component {
   render() {
     return (
       <div>
-        <h1>Welcome to the Store!</h1>
-        <div className="subheader">
+        <div className="text-center mt-3">
+          <h1>Welcome to the Store!</h1>
           <h2>Item selected: {this.state.item}</h2>
           <h3>Price: ${this.state.price}</h3>
         </div>
-        <ul>
-          {this.items.slice(this.state.page*itemsPerPage, (this.state.page+1)*itemsPerPage).map((item, index) => <li ><Card handleCart={this.props.handleCart} handleClick={this.handleItemClicked} key={"item"+(this.state.page*itemsPerPage+index)} item={item} /></li>)}
-        </ul> 
+        <div className="row justify-content-start">
+          {this.items.slice(this.state.page*itemsPerPage, (this.state.page+1)*itemsPerPage).map((item, index) => <div className="col-xs-5 col-sm-4 col-lg-3"><Card handleCart={this.props.handleCart} handleClick={this.handleItemClicked} key={"item"+(this.state.page*itemsPerPage+index)} item={item} /></div>)}
+        </div>
         <ChangePage page={this.state.page} handleClick={this.handleChange}/>
       </div>
     );
