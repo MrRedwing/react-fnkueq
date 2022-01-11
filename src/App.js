@@ -42,8 +42,8 @@ export class App extends React.Component {
           <h2>Item selected: {this.state.item}</h2>
           <h3>Price: ${this.state.price}</h3>
         </div>
-        <div className="row justify-content-start">
-          {this.items.slice(this.state.page*itemsPerPage, (this.state.page+1)*itemsPerPage).map((item, index) => <div className="col-xs-5 col-sm-4 col-lg-3"><Card handleCart={this.props.handleCart} handleClick={this.handleItemClicked} key={"item"+(this.state.page*itemsPerPage+index)} item={item} /></div>)}
+        <div className="row m-1 justify-content-start">
+          {this.items.slice(this.state.page*itemsPerPage, (this.state.page+1)*itemsPerPage).map((item, index) => <div className="mx-auto col-8 col-sm-6 col-md-4 col-lg-3"><Card handleCart={this.props.handleCart} handleClick={this.handleItemClicked} key={"item"+(this.state.page*itemsPerPage+index)} item={item} /></div>)}
         </div>
         <ChangePage page={this.state.page} handleClick={this.handleChange}/>
       </div>

@@ -8,28 +8,28 @@ export class Card extends React.Component {
     return (
       <div
         onClick={() => this.props.handleClick(this.props.item)}
-        className="card text-center ml-3 w-100 h-100"
-        style={{ width: 15 + 'rem' }}
+        className="card h mx-auto text-center mx-3 mb-3 p-0 w-100"
         title={this.props.item['name']}
       >
         <img
-          className="card-img-top img-responsive"
+          style={{"object-fit": "cover"}, {"height": 18+"rem"}}
+          className="card-img img-responsive"
           title={this.props.item['name']}
           alt={this.props.item['name']}
           src={this.props.item['img src']}
         />
-        <div className="card-body">
-          <h3 classsName="card-title">
+        <div className="card-body p-0 pt-3">
+          <h3 classsName="card-title" style={{"overflow":"auto"}, {"white-space": "nowrap"}}>
             {this.props.item['name'].length < 18
               ? this.props.item['name']
               : this.props.item['name'].slice(0, 15) + '...'}{' '}
-            <button
+            {/* <button
               className="btn btn-primary"
               onClick={() => this.props.handleCart(this.props.item, true)}
               title="Add to cart"
             >
               +
-            </button>
+            </button> */}
           </h3>
           <p className="card-subtitle mb-2 text-muted">
             ${this.props.item['price'].toFixed(2)}
