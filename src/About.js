@@ -3,7 +3,7 @@ import React from 'react';
 export class About extends React.Component {
   render() {
     return (
-      <div className="subheader">
+      <div className="text-center">
         <h1>
           This buys items from Alibaba and AliExpress and ships it straight to
           your door
@@ -13,7 +13,6 @@ export class About extends React.Component {
           AliExpress at the links below
         </p>
         <a
-          className="link"
           href="https://www.ecommerceceo.com/alibaba-vs-aliexpress/"
           target="_blank"
           rel="noopener noreferrer"

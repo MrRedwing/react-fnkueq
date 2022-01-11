@@ -18,8 +18,8 @@ export function Footer(props) {
       <nav className="navbar navbar-expand-sm navbar-light bg-light">
         <div className="collapse navbar-collapse">
           <ul className="navbar-nav nav-fill w-100">
-            {props.categories.map((category) => (
-              <li className="nav-item ms-3">
+            {props.categories.map((category, index) => (
+              <li key={"footer"+category+index} className="nav-item ms-3">
                 <Link className="nav-link" to={'/' + category}>
                   {category}
                 </Link>

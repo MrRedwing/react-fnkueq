@@ -19,9 +19,9 @@ export class Checkout extends React.Component {
   }
   render() {
     return (
-      <div className="subheader">
+      <div className="text-center">
         <h1>Items in Cart</h1>
-        <table id="checkout">
+        <table className="text-center" id="checkout">
           <tr>
             <th><h2>Qt</h2></th>
             <th><h2>Item</h2></th>

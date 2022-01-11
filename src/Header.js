@@ -18,8 +18,8 @@ export function Header(props) {
         </button>
         <div id="header" className="collapse navbar-collapse">
           <ul className="navbar-nav nav-fill w-100">
-            {props.categories.map((category) => (
-              <li className="nav-item ms-3">
+            {props.categories.map((category, index) => (
+              <li key={"header"+category+index}className="nav-item ms-3">
                 <Link className="nav-link" to={'/' + category}>
                   {category}
                 </Link>
