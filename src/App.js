@@ -45,8 +45,6 @@ export class App extends React.Component {
       <div>
         <div className="text-center mt-3">
           <h1>Welcome to the Store!</h1>
-          <h2>Item selected: {this.state.item}</h2>
-          <h3>Price: ${this.state.price}</h3>
         </div>
         <div className="row m-1 justify-content-start">
           {this.items
