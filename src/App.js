@@ -1,70 +1,56 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import { Card } from './Card.js';
 import { ChangePage } from './ChangePage.js';
 
 import './style.css';
 
-const itemsPerPage = 8;
+export function App(props) {
+  let items = props.items;
+  const itemsPerPage = 8;
 
-export class App extends React.Component {
-  constructor(props) {
-    super(props);
+  const [item, setItem] = useState('Select an Item');
+  const [price, setPrice] = useState(0);
+  const [page, setPage] = useState(0);
 
-    this.items = this.props.items;
-
-    this.state = {
-      item: 'Select an Item',
-      price: 0,
-      page: 0,
-    };
-    this.handleItemClicked = this.handleItemClicked.bind(this);
-    this.handleChange = this.handleChange.bind(this);
+  function handleItemClicked(value) {
+    setItem(value['name']);
+    setPrice(value['price']);
   }
-  handleItemClicked(value) {
-    this.setState({ item: value['name'], price: value['price'] });
-    //window.location.href = 'https://react-fnkueq.stackblitz.io/' + value;
-  }
-  handleChange(value) {
+
+  function handleChange(value) {
     //Checks to make sure change value is positive and next page has items
     if (
-      this.items.slice(
-        (this.state.page + 1) * itemsPerPage,
-        (this.state.page + 2) * itemsPerPage
-      ).length != 0 &&
+      items.slice((page + 1) * itemsPerPage, (page + 2) * itemsPerPage)
+        .length != 0 &&
       value > 0
     ) {
-      this.setState({ page: this.state.page + 1 });
+      setPage(page + 1);
       //Makes sure current page isn't the first page. Can't go to a -1 page
-    } else if (this.state.page != 0 && value < 0) {
-      this.setState({ page: this.state.page - 1 });
+    } else if (page != 0 && value < 0) {
+      setPage(page - 1);
     }
   }
-  render() {
-    return (
-      <div>
-        <div className="text-center mt-3">
-          <h1>Welcome to the Store!</h1>
-        </div>
-        <div className="row m-1 justify-content-start">
-          {this.items
-            .slice(
-              this.state.page * itemsPerPage,
-              (this.state.page + 1) * itemsPerPage
-            )
-            .map((item, index) => (
-              <div className="mx-auto col-8 col-sm-6 col-md-4 col-lg-3">
-                <Card
-                  handleCart={this.props.handleCart}
-                  handleClick={this.handleItemClicked}
-                  key={'item' + (this.state.page * itemsPerPage + index)}
-                  item={item}
-                />
-              </div>
-            ))}
-        </div>
-        <ChangePage page={this.state.page} handleClick={this.handleChange} />
+  return (
+    <div>
+      <div className="text-center mt-3">
+        <h1>Welcome to the Store!</h1>
       </div>
-    );
-  }
+      <div className="row m-1 justify-content-start">
+        {items
+          .slice(page * itemsPerPage, (page + 1) * itemsPerPage)
+          .map((item, index) => (
+            <div className="mx-auto col-8 col-sm-6 col-md-4 col-lg-3">
+              <Card
+                handleCart={props.handleCart}
+                handleClick={handleItemClicked}
+                key={'item' + (page * itemsPerPage + index)}
+                item={item}
+              />
+            </div>
+          ))}
+      </div>
+      <ChangePage page={page} handleClick={handleChange} />
+    </div>
+  );
 }

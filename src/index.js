@@ -6,7 +6,7 @@ import {
   Route,
 } from 'react-router-dom';
 
-import { App } from './App';
+import { App } from './App.js';
 import { About } from './About.js';
 import { Item } from './Item.js';
 import { Header } from './Header.js';
