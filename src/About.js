@@ -3,7 +3,7 @@ import React from 'react';
 export class About extends React.Component {
   render() {
     return (
-      <div className="text-center">
+      <div className="p-3 text-center">
         <h1>
           This buys items from Alibaba and AliExpress and ships it straight to
           your door

@@ -11,7 +11,7 @@ export function Footer(props) {
     } else if (type == 'object') {
       return children.map((child) => <p className="text-center">{child}</p>);
     }
-  }
+  };
   return (
     <div>
       {handleChildren(props.children)}
@@ -19,7 +19,7 @@ export function Footer(props) {
         <div className="collapse navbar-collapse">
           <ul className="navbar-nav nav-fill w-100">
             {props.categories.map((category, index) => (
-              <li key={"footer"+category+index} className="nav-item ms-3">
+              <li key={'footer' + category + index} className="nav-item ms-3">
                 <Link className="nav-link" to={'/' + category}>
                   {category}
                 </Link>
