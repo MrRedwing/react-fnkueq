@@ -1,10 +1,6 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-} from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 import { App } from './App.js';
 import { About } from './About.js';
@@ -21,9 +17,11 @@ const categories = ['Home', 'About', 'Contact', 'View Cart'];
 import * as data from './data.json';
 const items = data['items'];
 
-function Index (props){
-  const initialPath = window.location.pathname.replace('/', '').replace('%20', ' ');
-  const [input, setInput] = useState("");
+function Index(props) {
+  const initialPath = window.location.pathname
+    .replace('/', '')
+    .replace('%20', ' ');
+  const [input, setInput] = useState('');
   const [cart, setCart] = useState([]);
 
   function handleCart(value, add) {
@@ -60,16 +58,9 @@ function Index (props){
         <Route
           exact
           path="/View%20Cart"
-          element={
-            <Checkout cart={cart} handleCart={handleCart} />
-          }
+          element={<Checkout cart={cart} handleCart={handleCart} />}
         />
-        <Route
-          path="/Item/:id"
-          element={
-            <Item handleCart={handleCart} items={items}/>
-          }
-        />
+        <Route path="/Item/:id" element={<Item handleCart={handleCart} />} />
         <Route path="*" element={<Unknown />} />
       </Routes>
       <div className="mt-5">
