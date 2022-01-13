@@ -40,7 +40,7 @@ export function App(props) {
         {items
           .slice(page * itemsPerPage, (page + 1) * itemsPerPage)
           .map((item, index) => (
-            <div className="mx-auto col-8 col-sm-6 col-md-4 col-lg-3">
+            <div className="mx-auto col-8 col-sm-6 col-md-4 col-lg-4">
               <Card
                 handleCart={props.handleCart}
                 handleClick={handleItemClicked}
