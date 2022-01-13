@@ -10,11 +10,7 @@ export function Item(props) {
   const navigate = useNavigate();
   const { id } = useParams();
 
-  function filterItem(id){
-    return items.find((item) => item['id'] == id);
-  }
-
-  const item = filterItem(id);
+  const item = items[id-1];
 
   return (
     <div className="p-3">
