@@ -1,5 +1,7 @@
 # react-fnkueq
 
-[Edit on StackBlitz ⚡️](https://stackblitz.com/edit/react-fnkueq)React Project
+[Edit on StackBlitz ⚡️](https://stackblitz.com/edit/react-fnkueq)
 
-Hello world
+Further edited with Manjaro Linux 🐧
+
+React Project
